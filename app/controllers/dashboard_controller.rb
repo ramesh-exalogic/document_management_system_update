@@ -1,7 +1,10 @@
 class DashboardController < ApplicationController
   def index
-    @user = User.first
-    @audits = @user.audits
+    @user = User.all
+    @user.each { |user|
+     @audits = user.audits
+    }
+    @audits
   end
   def show
 
