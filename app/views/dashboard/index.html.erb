@@ -1,14 +1,18 @@
-<h1>Dashboard#index</h1>
+<h1>Dashboard List</h1>
 <p>Hi <%=current_user.role%> Welcome to dashboard</p>
 
-<%= link_to 'gotouserpage', new_article_path %>
+<%= link_to 'gotoattachments', new_article_path %>
+<%= link_to 'viewAuditlogs', new_article_path %>
 <h2>User attachment details</h2>
 <table>
   <thead>
     <tr>
-      <th>Action</th>
-      <th>Created At</th>
-      <th>Changes</th>
+      <th>Document No</th>
+      <th>Document Category</th>
+      <th>Document Name</th>
+      <th>File Size</th>
+      <th>File type</th>
+      <th>Status</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +21,32 @@
         <td><%=link_to "#{art.title}", art %></td>
         <td><%= link_to "#{art.body}", art %></td>
         <td><%= art.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>Audit Details</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Action</th>
+      <th>Audit Changes</th>
+      <th>Version</th>
+      <th>Time</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @audites.each do |audit| %>
+      <tr>
+        <td><%= audit.auditable_type%></td>
+        <td><%= audit.action%></td>
+        <td><%= audit.audited_changes%></td>
+        <td><%= audit.version%></td>
+        <td><%= audit.created_at%></td>
       </tr>
     <% end %>
   </tbody>

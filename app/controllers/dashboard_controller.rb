@@ -9,6 +9,8 @@ class DashboardController < ApplicationController
     else
     @user_articles =[]
   end
+
+  @audites = user.audits
   end
 
   def new
