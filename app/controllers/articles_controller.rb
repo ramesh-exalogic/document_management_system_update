@@ -7,7 +7,9 @@ class ArticlesController < ApplicationController
   end
   def create
     article = Article.create(article_params)
+    #byebug
     article.image.attach(params[:article][:image])
+    #article..attach(params[:article][:image])
     redirect_to article
   end
   private
