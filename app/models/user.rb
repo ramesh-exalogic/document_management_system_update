@@ -10,6 +10,7 @@ class User < ApplicationRecord
           enum role: { user: 0, Admin: 1, Editor: 2, Viewer: 3 }
            has_one_attached :profile_picture
            validate :acceptable_image
+           has_many :articles
 
   def set_default_role
     self.role ||= :user

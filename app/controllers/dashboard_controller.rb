@@ -1,11 +1,14 @@
 class DashboardController < ApplicationController
   def index
     #@dashboard = Dashboard.new
-    @user = User.all
-    @user.each { |user|
-     @audits = user.audits
-    }
-    @audits
+    user_id = current_user.id
+    #byebug
+    user = User.find(user_id)
+    if user.articles.present?
+     @user_articles = user.articles
+    else
+    @user_articles =[]
+  end
   end
 
   def new

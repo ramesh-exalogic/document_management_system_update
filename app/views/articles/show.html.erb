@@ -1,4 +1,5 @@
 <%=@article.title%>
+
 <%= image_tag @article.image %>
 
 <% if @article.image.attached? %>
@@ -7,9 +8,9 @@
   <p>No resume uploaded.</p>
 <% end %>
 
-<% if @article.image.attached? %>
+<!--<% if @article.image.attached? %>
   <iframe src="<%= url_for(@article.image) %>" width="600" height="500"></iframe>
 <% else %>
   <p>No resume uploaded.</p>
-<% end %>
+<% end %> -->
 
