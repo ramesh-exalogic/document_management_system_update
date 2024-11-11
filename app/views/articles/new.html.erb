@@ -3,21 +3,34 @@
 
 
 <%= form_with(model: @article, local: true, html: { multipart: true }) do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label :body %>
-    <%= f.text_field :body %>
-  </div>
+ 
 
 
   <div>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
+
+  <div>
+    <%= f.label :DocumentNo %>
+    <%= f.text_field :document_no %>
+  </div>
+
+  <div>
+    <%= f.label :DocumentCategory %>
+    <%= f.text_field :document_category %>
+  </div>
+
+  <div>
+    <%= f.label :DocumentName %>
+    <%= f.text_field :document_name %>
+  </div>
+
+  <div>
+    <%= f.label :Status %>
+    <%= f.text_field :status %>
+  </div>
+
 
 
   <%= f.hidden_field :user_id, value: current_user.id %>

@@ -10,10 +10,10 @@ class ArticlesController < ApplicationController
     #byebug
     article.image.attach(params[:article][:image])
     #article..attach(params[:article][:image])
-    redirect_to article
+    redirect_to root_path
   end
   private
   def article_params
-    params.require(:article).permit(:title, :body, :user_id)
+    params.require(:article).permit(:title, :body, :user_id, :document_no, :document_name, :document_category, :status)
   end
 end

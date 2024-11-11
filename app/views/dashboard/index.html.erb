@@ -10,17 +10,28 @@
       <th>Document No</th>
       <th>Document Category</th>
       <th>Document Name</th>
-      <th>File Size</th>
-      <th>File type</th>
       <th>Status</th>
+      <th>CreatedAt</th>
+       <th>Detaisl</th>
     </tr>
   </thead>
   <tbody>
     <% @user_articles.each do |art| %>
       <tr>
-        <td><%=link_to "#{art.title}", art %></td>
-        <td><%= link_to "#{art.body}", art %></td>
+        <td><%=link_to "#{art.document_no}", art %></td>
+        <td><%= art.document_category %></td>
+        <td><%= art.document_name %></td>
+        <td><%= art.status %></td>
         <td><%= art.created_at %></td>
+        <%if current_user.Admin?%>
+        <td>
+          <!-- View link -->
+          <%= link_to 'View', art %> |
+          <!-- Edit link -->
+          
+          
+        </td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>
