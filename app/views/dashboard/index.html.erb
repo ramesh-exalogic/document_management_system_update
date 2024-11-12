@@ -85,7 +85,7 @@
   <tbody>
     <% @document_category.each do |dc| %>
       <tr>
-        <td><%= dc.name%></td>
+        <td><%= dc.name %></td>
         <td><%= dc.role%></td>
         <td>
         <%if dc.view == 1%>
@@ -107,6 +107,8 @@
         <%else%>
          <%= check_box_tag 'download', '0' %>
         <%end%></td>
+
+        <td><%= link_to 'Edit', edit_document_category_path(dc) %></td>
         
       </tr>
     <% end %>

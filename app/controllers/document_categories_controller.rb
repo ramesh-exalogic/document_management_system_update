@@ -8,6 +8,20 @@ class DocumentCategoriesController < ApplicationController
 		
 	end
 
+	def edit
+    @document_category = DocumentCategory.find(params[:id])
+
+    end
+
+     def update
+     	@document_category = DocumentCategory.find(params[:id])
+	    if @document_category.update(document_category_params)
+	      redirect_to @document_category, notice: 'Document was successfully updated.'
+	    else
+	      render :edit, status: :unprocessable_entity
+	    end
+   end
+
 
      
   #def show
