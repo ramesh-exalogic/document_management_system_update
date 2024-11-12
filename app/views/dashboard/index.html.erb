@@ -2,14 +2,16 @@
 <p>Hi <%=current_user.role%> Welcome to dashboard</p>
 
 <%= link_to 'gotoattachments', new_article_path %>
-<%= link_to 'viewAuditlogs', new_article_path %>
+
+
+
 <h2>User attachment details</h2>
 <table>
   <thead>
     <tr>
-      <th>Document No</th>
-      <th>Document Category</th>
-      <th>Document Name</th>
+      <th>DocumentNo</th>
+      <th>DocumentCategory</th>
+      <th>DocumentName</th>
       <th>Status</th>
       <th>CreatedAt</th>
        <th>Detaisl</th>
@@ -28,7 +30,8 @@
           <!-- View link -->
           <%= link_to 'View', art %> |
           <!-- Edit link -->
-          
+          <%= link_to 'Edit' %> |
+          <%= link_to 'Delete' %> 
           
         </td>
         <%end%>
@@ -62,3 +65,32 @@
     <% end %>
   </tbody>
 </table>
+
+<%if current_user.Admin?%>
+<h2>Admin configuration</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Document Access</th>
+      <th>View</th>
+      <th>Edit</th>
+      <th>Download</th>
+      <th>Delete</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @audites.each do |audit| %>
+      <tr>
+        <td><%= audit.auditable_type%></td>
+        <td><%= audit.action%></td>
+        <td><%= audit.audited_changes%></td>
+        <td><%= audit.version%></td>
+        <td><%= audit.created_at%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%end%>
+
+

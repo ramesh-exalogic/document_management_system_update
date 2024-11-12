@@ -18,7 +18,8 @@
 
   <div>
     <%= f.label :DocumentCategory %>
-    <%= f.text_field :document_category %>
+    
+    <%= f.select :document_category, options_for_select(["EmiratedId", "Aadhar", "VoterID"]), prompt: 'Identification' %>
   </div>
 
   <div>
@@ -27,8 +28,8 @@
   </div>
 
   <div>
-    <%= f.label :Status %>
-    <%= f.text_field :status %>
+    <%= f.label :ApprovalStatus %>
+    <%= f.select :status, options_for_select(["Pending", "Approved", "Rejected"]), prompt: 'WorkFlow' %>
   </div>
 
 

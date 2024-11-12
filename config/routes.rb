@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'dashboard#index'
   resources :articles, only: [:new, :create, :show]
   resources :user
+  resources :admin
   #get "/users/sign_out", to: 'devise/sessions#destroy'
   #devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
   #delete 'logout', to: 'sessions#destroy', as: :logout
