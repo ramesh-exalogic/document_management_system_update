@@ -11,6 +11,8 @@ class DashboardController < ApplicationController
   end
 
   @audites = user.audits
+
+  @document_category = DocumentCategory.all
   end
 
   def new

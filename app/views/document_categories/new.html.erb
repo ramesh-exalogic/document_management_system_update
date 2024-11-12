@@ -1,0 +1,54 @@
+<%if current_user.Admin?%>
+
+
+
+
+<%= form_with(model: @document_category, local: true, html: { multipart: true }) do |f| %>
+ 
+
+
+  
+
+  <div>
+    <%= f.label :DocumentCategory %>
+    
+    <%= f.select :name, options_for_select(["EmiratedId", "Aadhar", "VoterID", "PAN"]), prompt: 'Identification' %>
+  </div>
+
+
+  <div>
+    <%= f.label :Role %>
+    
+    <%= f.select :role, options_for_select(["Admin", "Viewer", "Editor"]), prompt: 'Role' %>
+  </div>
+
+
+ 
+  <div >
+    <%= f.label :view, "view" %>
+    <%= f.check_box :view %>
+  </div>
+
+  <div >
+    <%= f.label :edit, "Edit" %>
+    <%= f.check_box :edit %>
+  </div>
+
+  <div >
+    <%= f.label :download, "Download" %>
+    <%= f.check_box :download %>
+  </div>
+
+
+  
+
+
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%end%>

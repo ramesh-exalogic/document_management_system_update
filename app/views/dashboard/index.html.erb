@@ -3,6 +3,8 @@
 
 <%= link_to 'gotoattachments', new_article_path %>
 
+<%= link_to 'gotoconfig', new_document_category_path %>
+
 
 
 <h2>User attachment details</h2>
@@ -72,21 +74,40 @@
   <thead>
     <tr>
       <th>Document Access</th>
+      <th>Role</th>
       <th>View</th>
       <th>Edit</th>
       <th>Download</th>
-      <th>Delete</th>
+      
       
     </tr>
   </thead>
   <tbody>
-    <% @audites.each do |audit| %>
+    <% @document_category.each do |dc| %>
       <tr>
-        <td><%= audit.auditable_type%></td>
-        <td><%= audit.action%></td>
-        <td><%= audit.audited_changes%></td>
-        <td><%= audit.version%></td>
-        <td><%= audit.created_at%></td>
+        <td><%= dc.name%></td>
+        <td><%= dc.role%></td>
+        <td>
+        <%if dc.view == 1%>
+        <%= check_box_tag 'view', '1', dc.view? %>
+        <%else%>
+        <%= check_box_tag 'view', '0' %>
+        <%end%></td>
+        
+        <td>
+        <%if dc.edit == 1%>
+        <%= check_box_tag 'edit', '1', dc.edit? %>
+        <%else%>
+         <%= check_box_tag 'edit', '0' %>
+        <%end%></td>
+
+        <td>
+        <%if dc.download == 1%>
+        <%= check_box_tag 'download', '1', dc.download? %>
+        <%else%>
+         <%= check_box_tag 'download', '0' %>
+        <%end%></td>
+        
       </tr>
     <% end %>
   </tbody>
