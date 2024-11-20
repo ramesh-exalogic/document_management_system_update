@@ -1,14 +1,38 @@
 <h1>Dashboard List</h1>
 <p>Hi <%=current_user.role%> Welcome to dashboard</p>
 
-<%= link_to 'gotoattachments', new_article_path %>
+<%= link_to 'UserAttachments', new_article_path %>
 
-<%= link_to 'gotoconfig', new_document_category_path %>
+<%= link_to 'AdminConfiguration', new_document_category_path %>
 
 
 
 <h2>User attachment details</h2>
-
+<table>
+  <thead>
+    <tr>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_articles.each do |art| %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <%if current_user.Admin?%>
+        <td>
+          
+          
+          
+        </td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
 
