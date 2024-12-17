@@ -76,7 +76,7 @@
         <td><%= art.document_category %></td>
         <td><%= art.document_name %></td>
         <td><%= art.status %></td>
-        <td><%= art.created_at %></td>
+        <td><%= art.created_at.strftime("%B %d, %Y %I:%M %p") %></td>
         <%if current_user.Admin?%>
         <td>
           <!-- View link -->
